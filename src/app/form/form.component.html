@@ -1,0 +1,88 @@
+<div class="container">
+    <h2>User Form</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Name Input -->
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name" class="form-control" />
+            <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="error">
+                Name is required and must only contain letters.
+            </div>
+        </div>
+
+        <!-- Contact Input -->
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <input id="contact" type="text" formControlName="contact" class="form-control" />
+            <div *ngIf="form.get('contact')?.invalid && form.get('contact')?.touched" class="error">
+                Enter a valid phone number (10 digits).
+            </div>
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" minlength="12" maxlength="20" type="password" formControlName="password" class="form-control" />
+            <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="error">
+                Password is required and must be between 12 and 20 characters.
+            </div>
+        </div>
+
+         <!-- Email Input -->
+         <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="text" formControlName="email" class="form-control" />
+            <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="error">
+                Enter a valid email address.
+            </div>
+        </div>
+
+        <!-- Email FormArray -->
+        <!-- <div formArrayName="emails">
+            <div *ngFor="let emailGroup of emails.controls; let i = index" [formGroupName]="i">
+                <label for="email-{{i}}">Email</label>
+                <input id="email-{{i}}" formControlName="email" class="form-control" />
+                <div *ngIf="emailGroup.get('email')?.invalid && emailGroup.get('email')?.touched" class="error">
+                    Enter a valid email.
+                </div>
+                <button type="button" [disabled]="!isEmailRemoveEnabled(i)" (click)="removeEmail(i)">Remove</button>
+                <button type="button" [disabled]="emailGroup.get('email')?.invalid" (click)="addEmail()">Add Email</button>
+            </div>
+        </div> -->
+
+        <!-- Address FormArray -->
+        <div formArrayName="address">
+            <div *ngFor="let addressGroup of address.controls; let i = index" [formGroupName]="i">
+                <h4>Address {{i + 1}}</h4>
+                <label for="addressType{{i}}">Address Type</label>
+                <input id="addressType{{i}}" formControlName="addressType" class="form-control" />
+                <label for="street{{i}}">Street</label>
+                <input id="street{{i}}" formControlName="street" class="form-control" />
+                <label for="city{{i}}">City</label>
+                <input id="city{{i}}" formControlName="city" class="form-control" />
+                <label for="state{{i}}">State</label>
+                <input id="state{{i}}" formControlName="state" class="form-control" />
+                <label for="country{{i}}">Country</label>
+                <input id="country{{i}}" formControlName="country" class="form-control" />
+                <label for="pincode{{i}}">Pincode</label>
+                <input id="pincode{{i}}" formControlName="pincode" class="form-control" />
+                <button type="button" [disabled]="!isAddressRemoveEnabled(i)" (click)="removeAddress(i)">Remove</button>
+                <button type="button" [disabled]="isAddressFormInvalid(i)" (click)="addAddress()">Add Address</button>
+            </div>
+        </div>
+
+        <!-- Skills FormArray -->
+        <div formArrayName="skills">
+            <div *ngFor="let skillGroup of skills.controls; let i = index" [formGroupName]="i">
+                <label for="skill{{i}}">Skill</label>
+                <input id="skill{{i}}" formControlName="skill" class="form-control" />
+                <button type="button" [disabled]="!isSkillRemoveEnabled(i)" (click)="removeSkill(i)">Remove</button>
+            </div>
+            <button type="button" [disabled]="isSkillFormInvalid()" (click)="addSkill()">Add Skill</button>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" [disabled]="!isFormValid" class="btn btn-primary">Submit</button>
+        <button type="submit" (click)="onReset()" class="btn btn-primary">Reset</button>
+    </form>
+</div>

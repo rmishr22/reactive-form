@@ -1,0 +1,152 @@
+/* Center the form and make it responsive */
+form {
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+ 
+  
+  /* Header styles */
+  h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Form group style for input fields */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  textarea, input {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  input[type="number"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  /* Error message styling */
+  .error {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #45a049;
+  }
+  
+  /* Remove and Add buttons for the form arrays */
+  button[type="button"] {
+    background-color: #f44336;
+    padding: 8px 12px;
+    font-size: 13px;
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+  
+  button[type="button"]:disabled {
+    background-color: #ccc;
+  }
+  
+  button[type="button"]:hover:not(:disabled) {
+    background-color: #e53935;
+  }
+  
+  /* Adjustments for address and skill group */
+  .address-group,
+  .skills-group {
+    margin-bottom: 20px;
+  }
+  
+  .address-group input,
+  .skills-group input {
+    margin-bottom: 10px;
+  }
+  
+  .address-group label,
+  .skills-group label {
+    font-size: 13px;
+    font-weight: normal;
+    color: #666;
+  }
+  
+  /* Add spacing for Add and Remove buttons */
+  div[formArrayName="emails"] button,
+  div[formArrayName="address"] button,
+  div[formArrayName="skills"] button {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    form {
+      padding: 15px;
+      max-width: 100%;
+    }
+  
+    h2 {
+      font-size: 24px;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"] {
+      font-size: 13px;
+      padding: 10px;
+    }
+  
+    button {
+      font-size: 13px;
+    }
+  }
+  
